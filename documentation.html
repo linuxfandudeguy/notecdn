@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteCDN - Documentation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .documentation-section {
+            padding: 4rem 2rem;
+        }
+        .documentation-section h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .navbar .logo {
+            width: 50px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://lelbois.nekoweb.org/cdn/dd3c5517-753b-4261-a11d-67e724e10c6f.png" alt="NoteCDN Logo" class="logo">
+            NoteCDN
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="features.html">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Documentation Section -->
+    <div class="documentation-section">
+        <div class="container">
+            <h1>NoteCDN Script Fetching Documentation</h1>
+            <p>Welcome to the NoteCDN script fetching documentation. NoteCDN fetches scripts using a path-based method similar to jsDelivr.</p>
+            
+            <h2>How to Use NoteCDN</h2>
+            <p>To fetch scripts using NoteCDN, use the following format:</p>
+            <pre><code>https://notecdn.vercel.app/fetch/<b>{script-path}</b></code></pre>
+            <p>Replace <b>{script-path}</b> with the path to the script you want to fetch.</p>
+
+            <h2>Examples</h2>
+            <p>Fetching a script from NoteCDN:</p>
+            <pre><code>https://notecdn.vercel.app/fetch/npm/axios/dist/axios.min.js</code></pre>
+            <p>This fetches the <code>axios.min.js</code> script from NoteCDN.</p>
+
+            <h2>Integration in Your Website</h2>
+            <p>To integrate NoteCDN in your website:</p>
+            <ol>
+                <li>Construct the URL with the script path you need to fetch.</li>
+                <li>Use this URL in your HTML <code>&lt;script&gt;</code> tag's <code>src</code> attribute.</li>
+                <li>Ensure the path points to the correct script location.</li>
+                <li>Example:</li>
+                <pre><code>&lt;script src="https://notecdn.vercel.app/fetch/npm/axios/dist/axios.min.js"&gt;&lt;/script&gt;</code></pre>
+            </ol>
+
+            <p>For more information and examples, visit <a href="https://jsdelivr.com" target="_blank">JSdelivr</a>.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 NoteCDN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
