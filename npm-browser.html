@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteCDN - NPM Package Search</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .documentation-section {
+            padding: 4rem 2rem;
+        }
+        .documentation-section h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .navbar .logo {
+            width: 50px;
+            height: auto;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+        code {
+            font-size: 1rem;
+        }
+        .result-container {
+            margin-top: 2rem;
+        }
+        .package {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+        .package:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://lelbois.nekoweb.org/cdn/dd3c5517-753b-4261-a11d-67e724e10c6f.png" alt="NoteCDN Logo" class="logo">
+            NoteCDN
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="features.html">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Documentation Section -->
+    <div class="documentation-section">
+        <div class="container">
+            <h1>NoteCDN NPM Package Search</h1>
+            <form id="search-form">
+                <div class="form-group">
+                    <label for="search-query">Search for NPM packages:</label>
+                    <input type="text" class="form-control" id="search-query" placeholder="Enter package name">
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <div id="results" class="result-container"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 NoteCDN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('search-query').value;
+            fetch(`https://registry.npmjs.org/-/v1/search?text=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    const results = document.getElementById('results');
+                    results.innerHTML = '';
+                    data.objects.forEach(pkg => {
+                        const pkgElement = document.createElement('div');
+                        pkgElement.className = 'package';
+                        pkgElement.innerHTML = `
+                            <h3>${pkg.package.name}</h3>
+                            <p>${pkg.package.description}</p>
+                            <p><a href="${pkg.package.links.npm}" target="_blank">View on NPM</a></p>
+                        `;
+                        results.appendChild(pkgElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching NPM packages:', error);
+                });
+        });
+    </script>
+</body>
+</html>
