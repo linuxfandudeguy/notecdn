@@ -71,6 +71,13 @@
             <pre><code>https://notecdn.vercel.app/fetch/<b>{script-path}</b></code></pre>
             <p>Replace <b>{script-path}</b> with the path to the script you want to fetch.</p>
 
+            <h2>Using Minified Scripts</h2>
+            <p>To fetch minified versions of scripts, use the <code>.min</code> suffix in the script file name. Minified scripts are optimized for performance by reducing the file size.</p>
+            <p>For example, to fetch a minified version of Axios:</p>
+            <pre><code>https://notecdn.vercel.app/fetch/npm/axios/dist/axios.min.js</code></pre>
+            <p>Ensure you use the correct path to the minified version of the script.</p>
+            <p>Since NoteCDN is based on jsDelivr, it will automatically minify your files using tools like Terser, clean-css, Rollup, or others depending on the type of file you are using.</p>
+
             <h2>Examples</h2>
             <p>Fetching a script from NoteCDN:</p>
             <pre><code>https://notecdn.vercel.app/fetch/npm/axios/dist/axios.min.js</code></pre>
@@ -112,7 +119,7 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-            <p>For more information and examples, visit <a href="https://jsdelivr.com" target="_blank">JSdelivr</a>.</p>
+            <p>For more information and examples, visit <a href="https://jsdelivr.com" target="_blank">jsDelivr</a>.</p>
         </div>
     </div>
 
