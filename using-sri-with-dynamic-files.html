@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteCDN - SRI and Dynamically Generated Files</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .documentation-section {
+            padding: 4rem 2rem;
+        }
+        .documentation-section h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+        code {
+            font-size: 1rem;
+        }
+        .navbar .logo {
+            width: 50px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://lelbois.nekoweb.org/cdn/dd3c5517-753b-4261-a11d-67e724e10c6f.png" alt="NoteCDN Logo" class="logo">
+            NoteCDN
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="features.html">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Documentation Section -->
+    <div class="documentation-section">
+        <div class="container">
+            <h1>Why You Shouldn't Use SRI with Dynamically Generated Files</h1>
+            
+            <p>Subresource Integrity (SRI) is a security feature that allows browsers to verify that files they fetch (such as scripts and stylesheets) are delivered without unexpected manipulation. However, SRI is not suitable for dynamically generated files due to the following reasons:</p>
+
+            <h2>Key Reasons:</h2>
+            <ol>
+                <li><strong>Hash Mismatch:</strong> SRI relies on a fixed hash value specified in the HTML to verify the integrity of a file. When a file is dynamically generated, its content can change with each request or update, resulting in a different hash value. This causes the SRI check to fail, and the browser may block the resource.</li>
+                <li><strong>Practicality:</strong> Managing SRI hashes for dynamically generated files is impractical because updating the hash every time the content changes is not feasible. This undermines the purpose of using SRI for ensuring the integrity of fetched resources.</li>
+            </ol>
+
+            <h2>Example of What Not to Do</h2>
+            <p>Do not use SRI with dynamically generated files:</p>
+            <pre><code>&lt;script src="https://notecdn.vercel.app/fetch/npm/axios/dist/axios.min.js" integrity="sha256-abc123456789abcdef..." crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+            <p>In this example, <code>axios.min.js</code> is dynamically generated and changes its content frequently, causing the integrity hash <code>sha256-abc123456789abcdef...</code> to become outdated quickly.</p>
+
+            <h2>What to Do Instead</h2>
+            <p>For dynamically generated files, consider alternative security practices:</p>
+            <pre><code>&lt;script src="https://notecdn.vercel.app/fetch/npm/axios/dist/axios.min.js" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+            <p>Ensure that the server delivering the script uses strong security measures to prevent tampering. Regularly audit and monitor the server's integrity and implement other security mechanisms such as Content Security Policy (CSP) to enhance security.</p>
+
+            <h2>Conclusion</h2>
+            <p>For resources that are dynamically generated or frequently updated, it's recommended to use security practices other than SRI to ensure their integrity and security.</p>
+
+            <p>For more information on using SRI effectively, visit <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity" target="_blank">MDN Web Docs - Subresource Integrity</a>.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 NoteCDN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
