@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteCDN - API Documentation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .documentation-section {
+            padding: 4rem 2rem;
+        }
+        .documentation-section h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .navbar .logo {
+            width: 50px;
+            height: auto;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+        code {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://lelbois.nekoweb.org/cdn/dd3c5517-753b-4261-a11d-67e724e10c6f.png" alt="NoteCDN Logo" class="logo">
+            NoteCDN
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="features.html">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Documentation Section -->
+    <div class="documentation-section">
+        <div class="container">
+            <h1>NoteCDN API Documentation</h1>
+            <p>Welcome to the NoteCDN API documentation. NoteCDN provides API endpoints for fetching package versions, package files, and entry points.</p>
+            
+            <h2>API Endpoints</h2>
+            <p>NoteCDN API endpoints:</p>
+            <ul>
+                <li><code>/api/v1/packages/npm/{package}</code> - Get versions of a package</li>
+                <li><code>/api/v1/packages/npm/{package}@{version}</code> - Get package files for a specific version</li>
+                <li><code>/api/v1/packages/npm/{package}@{version}/entrypoints</code> - Get entry points for a package version</li>
+            </ul>
+
+            <h2>Usage Example</h2>
+            <p>Example usage of the NoteCDN API:</p>
+            <pre><code>https://uncors.vercel.app/?url=https://api-notecdn.vercel.app/api/v1/packages/npm/axios</code></pre>
+            <p>This fetches the versions of the <code>axios</code> package through the CORS proxy.</p>
+
+            <pre><code>https://uncors.vercel.app/?url=https://api-notecdn.vercel.app/api/v1/packages/npm/axios@0.21.1</code></pre>
+            <p>This fetches the package files for version <code>0.21.1</code> of <code>axios</code> through the CORS proxy.</p>
+
+            <pre><code>https://uncors.vercel.app/?url=https://api-notecdn.vercel.app/api/v1/packages/npm/axios@0.21.1/entrypoints</code></pre>
+            <p>This fetches the entry points for version <code>0.21.1</code> of <code>axios</code> through the CORS proxy.</p>
+
+            <h2>Integration in Your Application</h2>
+            <p>To integrate NoteCDN API in your application, construct the API URL with the appropriate endpoint and parameters, prefixed by the CORS proxy URL.</p>
+            <p>Example:</p>
+            <pre><code>// JavaScript example using fetch API with CORS proxy
+fetch('https://uncors.vercel.app/?url=https://api-notecdn.vercel.app/api/v1/packages/npm/axios@0.21.1')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+</code></pre>
+
+     
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 NoteCDN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
