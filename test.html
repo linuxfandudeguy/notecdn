@@ -3,33 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Google reCAPTCHA Enterprise Test</title>
+  <!-- Include the Google reCAPTCHA Enterprise script -->
   <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdiphAqAAAAAHaE8OtLs08P8bRNu70JKnlbe2V3"></script>
-  <script>
-    // Callback function executed after reCAPTCHA verification
-    function onSubmit(token) {
-      // Simulate form submission or further action based on token
-      console.log('reCAPTCHA token:', token);
-      // Here you can handle the token as needed, e.g., submit the form programmatically
-      document.getElementById("demo-form").submit();
-    }
-
-    // Function to render reCAPTCHA widget
-    function renderRecaptcha() {
-      grecaptcha.enterprise.ready(function() {
-        grecaptcha.enterprise.execute('6LdiphAqAAAAAHaE8OtLs08P8bRNu70JKnlbe2V3', {action: 'submit'}).then(function(token) {
-          // Execute this function after successful reCAPTCHA execution
-          onSubmit(token);
-        });
-      });
-    }
-  </script>
 </head>
 <body>
 
-
-  <!-- Your form fields -->
-  <button type="button" onclick="renderRecaptcha()">Submit</button>
+<!-- Your form to be protected by reCAPTCHA -->
+<form id="demo-form" action="/submit-your-form-action" method="POST">
+  <!-- Your form fields go here -->
+  
+  <!-- The reCAPTCHA widget -->
+  <button class="g-recaptcha"
+      data-sitekey="6LdiphAqAAAAAHaE8OtLs08P8bRNu70JKnlbe2V3"
+      data-callback='onSubmit'
+      data-action='submit'>
+    Submit
+  </button>
 </form>
+
+<!-- JavaScript to handle reCAPTCHA submission -->
+<script>
+  function onSubmit(token) {
+    document.getElementById("demo-form").submit(); // Submit the form when reCAPTCHA is verified
+  }
+</script>
 
 </body>
 </html>
