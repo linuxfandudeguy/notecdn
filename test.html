@@ -9,3 +9,12 @@
     document.getElementById("demo-form").submit();
   }
 </script>
+
+<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LdiphAqAAAAAHaE8OtLs08P8bRNu70JKnlbe2V3', {action: 'LOGIN'});
+    });
+  }
+</script>
