@@ -77,8 +77,8 @@
             <pre><code>https://notecdn.vercel.app/fetch/npm/axios/dist/axios.min.js</code></pre>
             <p>Ensure you use the correct path to the minified version of the script.</p>
             <p>Since NoteCDN is based on jsDelivr, it will automatically minify your files using tools like Terser, clean-css, Rollup, or others depending on the type of file you are using.</p>
-<p>                                                 </p>
-<a href="/using-sri-with-dynamic-files.html">!!!DO NOT USE SRI WITH FILES FROM THE CDN!!!</a>
+            <p>                                                 </p>
+            <a href="/using-sri-with-dynamic-files.html">!!!DO NOT USE SRI WITH FILES FROM THE CDN!!!</a>
 
             <h2>Examples</h2>
             <p>Fetching a script from NoteCDN:</p>
@@ -122,6 +122,33 @@
 &lt;/html&gt;</code></pre>
 
             <p>For more information and examples, visit <a href="https://jsdelivr.com" target="_blank">jsDelivr</a>.</p>
+
+            <h2>AzureCDN Integration</h2>
+            <p>AzureCDN is a subsidiary of NoteCDN designed specifically for users of CDNJS. It provides similar functionality with paths based on CDNJS resources.</p>
+            <p>To fetch scripts using AzureCDN, use the following format:</p>
+            <pre><code>https://azurecdn.vercel.app/ajax/libs/<b>{script-path}</b></code></pre>
+            <p>Replace <b>{script-path}</b> with the path to the script or library you want to fetch from CDNJS.</p>
+            <p>For example, to fetch Bootstrap from CDNJS:</p>
+            <pre><code>https://azurecdn.vercel.app/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css</code></pre>
+
+            <h3>AzureCDN Example Code Block</h3>
+            <p>Here is an example of how to integrate Bootstrap in your HTML file using AzureCDN:</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Website&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://azurecdn.vercel.app/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Your content here --&gt;
+    &lt;!-- Bootstrap JavaScript --&gt;
+    &lt;script src="https://azurecdn.vercel.app/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>For more information and examples, visit <a href="https://cdnjs.com" target="_blank">CDNJS</a>.</p>
         </div>
     </div>
 
